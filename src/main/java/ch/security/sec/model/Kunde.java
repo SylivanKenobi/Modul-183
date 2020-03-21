@@ -4,7 +4,8 @@ package ch.security.sec.model;
 public class Kunde {
 
     @Id
-    @NotNull
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_kunde")
+    @SequenceGenerator(name = "seq_kunde", allocationSize = 10)
     private long id;
     @NotNull
     private String name;
@@ -13,7 +14,7 @@ public class Kunde {
     private String kreditkarte;
 
     public Kunde(){
-        
+
     }
 
     public Kunde(long Id, String Name, String Postanschrift, String Kreditkarte){
