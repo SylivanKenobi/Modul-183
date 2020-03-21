@@ -1,22 +1,19 @@
 package ch.security.sec.model;
 
-import org.springframework.data.annotation.Id;
+import org.hibernate.annotations.Entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_user")
-    @SequenceGenerator(name = "seq_user")
     private Integer id;
 
-    // Kunde
+    @ManyToOne(targetEntity = Kunde.class)
+    @JoinColumn(name = "id_kunde")
+    private Kunde kunde;
 
     @NotNull
     private String name;

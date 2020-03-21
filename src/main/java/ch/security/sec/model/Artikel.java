@@ -1,11 +1,15 @@
 package ch.security.sec.model;
 
-@Entity(name = "artikel")
+import org.hibernate.annotations.Entity;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+@Entity
 public class Artikel {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_artikel")
-    @SequenceGenerator(name = "seq_artikel", allocationSize = 10)
     private Long id;
 
     @NotEmpty
